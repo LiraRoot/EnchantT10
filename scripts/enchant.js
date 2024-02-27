@@ -1,19 +1,25 @@
 
 
 let failstack = 0;
-let chancePassar = 3;
 
-function attempt (click){
-    if (click === true) {
-        return console.log('Passed')
+
+function click(attempt) {
+    const randomNum = Math.random()
+    const result = attempt/100
+
+    if (randomNum <= result){
+        return 'T10 Passed';
     }
+    else{
 
-    else {
-        failstack++ 
-        chancePassar += 0.2
-        }
+        return
+        failstack++
+        attempt += 0.02
+
+        console.log(attempt)
+    }
 }
 
-attempt(false)
+console.log(failstack)
+console.log(click(10))
 
-console.log(failstack, chancePassar)
