@@ -1,25 +1,25 @@
 
-
 let failstack = 0;
 
+function attemptT10 (valorBase){
 
-function click(attempt) {
-    const randomNum = Math.random()
-    const result = attempt/100
+    valorBase = 3/100;
 
-    if (randomNum <= result){
-        return 'T10 Passed';
-    }
-    else{
+    const chanceReal = valorBase + ((0.2/100) * failstack)
+    
 
-        return
+    randomNum = Math.random()
+
+    if (randomNum <= chanceReal){
+        return console.log('T10 Passed')
+    } else {
         failstack++
-        attempt += 0.02
-
-        console.log(attempt)
+        console.log('Falha ao despertar, chance de passar: '  + chanceReal.toFixed(3) + ' Failstacks: ' + failstack)
     }
+
 }
 
-console.log(failstack)
-console.log(click(10))
+
+let buttonT10 = document.getElementById("T10Button")
+buttonT10.addEventListener("click", attemptT10)
 
